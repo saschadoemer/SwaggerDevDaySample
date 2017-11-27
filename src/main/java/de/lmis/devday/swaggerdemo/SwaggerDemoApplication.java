@@ -9,7 +9,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-@ComponentScan(basePackages = { "de.lmis.devday.swaggerdemo.pets.api", "de.lmis.devday.swaggerdemo.controllers" })
+// @ComponentScan(basePackages = { "de.lmis.devday.swaggerdemo.pets.api", "de.lmis.devday.swaggerdemo.controllers" })
 public class SwaggerDemoApplication implements CommandLineRunner {
 
 	@Override

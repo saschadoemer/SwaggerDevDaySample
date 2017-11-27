@@ -9,8 +9,6 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-11-25T23:32:04.802+01:00")
-
 @Configuration
 public class SwaggerDocumentationConfig {
 
@@ -30,7 +28,8 @@ public class SwaggerDocumentationConfig {
     public Docket customImplementation(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                    .apis(RequestHandlerSelectors.basePackage("de.lmis.devday.swaggerdemo.pets.api"))
+                    .apis(RequestHandlerSelectors.basePackage("de.lmis.devday.swaggerdemo.pets._20170401.api"))
+                    .apis(RequestHandlerSelectors.basePackage("de.lmis.devday.swaggerdemo.pets._20171202.api"))
                     .build()
                 .apiInfo(apiInfo());
     }

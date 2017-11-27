@@ -85,25 +85,53 @@
 				<groupId>io.swagger</groupId>
 				<artifactId>swagger-codegen-maven-plugin</artifactId>
 			</plugin>
+            <!-- new API: 2017-12-02 -->
             <plugin>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-codegen-maven-plugin</artifactId>
                 <version>2.2.3</version>
                 <executions>
                     <execution>
+                        <id>generate-20171202</id>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.build.directory}/classes/petstore-simple.yaml</inputSpec>
+                            <inputSpec>${project.build.directory}/classes/petstore-simple-20171202.yaml</inputSpec>
                             <language>spring</language>
                             <generateApis>true</generateApis>
                             <configOptions>
                                 <sourceFolder>src/generated-sources</sourceFolder>
                                 <dateLibrary>java8</dateLibrary>
                                 <interfaceOnly>true</interfaceOnly>
-                                <apiPackage>de.lmis.devday.swaggerdemo.pets.api</apiPackage>
-                                <modelPackage>de.lmis.devday.swaggerdemo.pets.model</modelPackage>
+                                <apiPackage>de.lmis.devday.swaggerdemo.pets._20171202.api</apiPackage>
+                                <modelPackage>de.lmis.devday.swaggerdemo.pets._20171202.model</modelPackage>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- old API, 2017-04-01 -->
+            <plugin>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-codegen-maven-plugin</artifactId>
+                <version>2.2.3</version>
+                <executions>
+                    <execution>
+                        <id>generate-20170401</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.build.directory}/classes/petstore-simple-20170401.yaml</inputSpec>
+                            <language>spring</language>
+                            <generateApis>true</generateApis>
+                            <configOptions>
+                                <sourceFolder>src/generated-sources</sourceFolder>
+                                <dateLibrary>java8</dateLibrary>
+                                <interfaceOnly>true</interfaceOnly>
+                                <apiPackage>de.lmis.devday.swaggerdemo.pets._20170401.api</apiPackage>
+                                <modelPackage>de.lmis.devday.swaggerdemo.pets._20170401.model</modelPackage>
                             </configOptions>
                         </configuration>
                     </execution>
@@ -123,7 +151,45 @@
                         <configuration>
                             <url>https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v2.0/yaml</url>
                             <fromFile>petstore-simple.yaml</fromFile>
-                            <toDir>${project.build.directory}/classes</toDir>
+                            <toFile>${project.build.directory}/classes/petstore-simple.yaml</toFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>wagon-maven-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <id>download-20171202</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>download-single</goal>
+                        </goals>
+                        <configuration>
+                            <url>https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v2.0/yaml</url>
+                            <fromFile>petstore-simple.yaml</fromFile>
+                            <toFile>${project.build.directory}/classes/petstore-simple-20171202.yaml</toFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>wagon-maven-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <id>download-20170401</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>download-single</goal>
+                        </goals>
+                        <configuration>
+                            <url>https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v2.0/yaml</url>
+                            <fromFile>petstore-simple.yaml</fromFile>
+                            <toFile>${project.build.directory}/classes/petstore-simple-20170401.yaml</toFile>
                         </configuration>
                     </execution>
                 </executions>
