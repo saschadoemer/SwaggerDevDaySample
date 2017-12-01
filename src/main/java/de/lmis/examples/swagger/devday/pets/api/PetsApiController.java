@@ -1,7 +1,7 @@
-package de.lmis.devday.swaggerdemo.pets.api;
+package de.lmis.examples.swagger.devday.pets.api;
 
-import de.lmis.devday.swaggerdemo.pets.model.NewPet;
-import de.lmis.devday.swaggerdemo.pets.model.Pet;
+import de.lmis.examples.swagger.devday.pets.model.NewPet;
+import de.lmis.examples.swagger.devday.pets.model.Pet;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package de.lmis.devday.swaggerdemo;
+package de.lmis.examples.swagger.devday;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

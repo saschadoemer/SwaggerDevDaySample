@@ -1,7 +1,6 @@
-package de.lmis.devday.swaggerdemo;
+package de.lmis.examples.swagger.devday;
 
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.ExitCodeGenerator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;

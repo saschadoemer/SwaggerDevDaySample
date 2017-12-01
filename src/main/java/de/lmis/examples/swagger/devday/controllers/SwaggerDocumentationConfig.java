@@ -1,4 +1,4 @@
-package de.lmis.devday.swaggerdemo.controllers;
+package de.lmis.examples.swagger.devday.controllers;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

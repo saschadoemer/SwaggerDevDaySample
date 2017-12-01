@@ -31,7 +31,7 @@
         <springfox-swagger2.version>2.7.0</springfox-swagger2.version>
 
         <!-- SPRING BOOT -->
-        <start-class>de.lmis.devday.swaggerdemo.SwaggerDemoApplication</start-class>
+        <start-class>de.lmis.examples.swagger.devday.SwaggerDemoApplication</start-class>
 
         <swagger-codegen-maven-plugin.version>2.2.3</swagger-codegen-maven-plugin.version>
         <wagon-maven-plugin.version>1.0</wagon-maven-plugin.version>
