@@ -30,9 +30,6 @@
         <springfox-swagger-ui.version>2.7.0</springfox-swagger-ui.version>
         <springfox-swagger2.version>2.7.0</springfox-swagger2.version>
 
-        <!-- SPRING BOOT -->
-        <start-class>de.lmis.examples.swagger.devday.SwaggerDemoApplication</start-class>
-
         <swagger-codegen-maven-plugin.version>2.2.3</swagger-codegen-maven-plugin.version>
         <wagon-maven-plugin.version>1.0</wagon-maven-plugin.version>
 
@@ -87,6 +84,23 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>generated-sources</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
@@ -100,15 +114,15 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.build.directory}/classes/petstore-simple.yaml</inputSpec>
+                            <inputSpec>${project.build.directory}/classes/petstore.yaml</inputSpec>
                             <language>spring</language>
                             <generateApis>true</generateApis>
                             <configOptions>
-                                <sourceFolder>src/generated-sources</sourceFolder>
+                                <sourceFolder>generated-sources</sourceFolder>
                                 <dateLibrary>java8</dateLibrary>
                                 <interfaceOnly>true</interfaceOnly>
-                                <apiPackage>de.lmis.devday.swaggerdemo.pets.api</apiPackage>
-                                <modelPackage>de.lmis.devday.swaggerdemo.pets.model</modelPackage>
+                                <apiPackage>de.lmis.examples.swagger.devday.pets.api</apiPackage>
+                                <modelPackage>de.lmis.examples.swagger.devday.pets.model</modelPackage>
                             </configOptions>
                         </configuration>
                     </execution>
@@ -126,9 +140,9 @@
                             <goal>download-single</goal>
                         </goals>
                         <configuration>
-                            <url>https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v2.0/yaml
-                            </url>
-                            <fromFile>petstore-simple.yaml</fromFile>
+                            <url>https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v2.0/yaml</url>
+                            <!--<url>https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0</url>-->
+                            <fromFile>petstore.yaml</fromFile>
                             <toDir>${project.build.directory}/classes</toDir>
                         </configuration>
                     </execution>
